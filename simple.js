@@ -57,3 +57,22 @@ function hotelCost(days){
 }
 var hotelTotalCost = hotelCost(12);
 console.log(hotelTotalCost);
+
+
+
+
+
+// 4th Problem
+function megaFriend(friends) {
+    var largeFriend = friends[0];
+    for (let i = 0; i < friends.length; i++) {
+        const element = friends[i];
+        if(largeFriend.length < element.length){
+            var largeFriend = element;
+            return largeFriend;
+        }
+    }
+}
+var friends = ["Mehedy", "Hassan", "Rohiz", "Eyasin", "Salauddin"];
+var mostLargeFriend = megaFriend(friends);
+console.log(mostLargeFriend);
