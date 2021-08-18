@@ -75,8 +75,8 @@ function megaFriend(friends) {
     var largeFriend = friends[0];
     for (let i = 0; i < friends.length; i++) {
         const element = friends[i];
-        if(typeof friends[i] != "string") {
-            largeFriend = friends[i] + " You can't enter any number. Please enter your friends name" 
+        if(typeof friends[i] != "string" || friends[i] == '') {
+            largeFriend = friends[i] + " is not valid name. Please enter your friends name" 
         }
         else if(largeFriend.length < element.length){
             var largeFriend = element;
