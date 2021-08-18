@@ -4,7 +4,7 @@ function kilometerToMeter(kilometer){
     var meter = kilometer * 1000;
     return meter;
    }
-   else return "0, Negative Number and String are not supported";
+   else if(kilometer <= 0 || typeof kilometer != "number") meter = kilometer + " is Not valid. You can convert one or more kilometers to meters if you want."
 }
 var newMeter = kilometerToMeter(2);
 console.log(newMeter);
@@ -19,9 +19,11 @@ function budgetCalculator(watch, phone, laptop){
         var phonePrice = phone * 100;
         var laptopPrice = laptop * 500;
         var totalPrice = watchPrice + phonePrice + laptopPrice;
-        return totalPrice;
     }
-    else return "0, Negative Number and String are not supported";
+    else if(watch <= 0 || typeof watch != "number") totalPrice = watch + " is Not valid. You can buy one or more watches if you want.";
+    else if(phone <= 0 || typeof phone != "number") totalPrice = phone + " is Not valid. You can buy one or more phones if you want.";
+    else if(laptop <= 0 || typeof laptop != "number") totalPrice = laptop + " is Not valid. You can buy one or more laptops if you want.";
+    return totalPrice;
 }
 var totalNewPrice = budgetCalculator(1, 1, 1);
 console.log(totalNewPrice);
@@ -31,19 +33,17 @@ console.log(totalNewPrice);
 
 // 3rd Problem
 function hotelCost(days){
-    if(days <= 0){
-        return "0, Negative Number and String are not supported";
+    if(days <= 0 || typeof days != "number"){
+        return totalCost= days + " is Not valid Number. You can stay in the hotel for one or more days if you want.";
     }
     else if(days <= 10){
         var totalCost = days * 100;
-        return totalCost;
     }
     else if(days <= 20){
         var first10days  = 10 * 100;
         var remaining = days - 10;
         var second20days = remaining * 80;
         var totalCost = first10days + second20days;
-        return totalCost;
     }
     else if(days > 20){
         var first10days = 10 * 100;
@@ -51,11 +51,10 @@ function hotelCost(days){
         var remaining = days - 20;
         var after20days = remaining * 50;
         var totalCost = first10days + second20days + after20days;
-        return totalCost;
     }
-    else return "0, Negative Number and String are not supported";
+    return totalCost;
 }
-var hotelTotalCost = hotelCost(12);
+var hotelTotalCost = hotelCost(6);
 console.log(hotelTotalCost);
 
 
@@ -67,11 +66,15 @@ function megaFriend(friends) {
     var largeFriend = friends[0];
     for (let i = 0; i < friends.length; i++) {
         const element = friends[i];
-        if(largeFriend.length < element.length){
+        if(typeof friends[i] != "string") {
+            largeFriend = friends[i] + " You can't enter any number. Please enter your friends name" 
+        }
+        else if(largeFriend.length < element.length){
             var largeFriend = element;
-            return largeFriend;
         }
     }
+    return largeFriend;
+
 }
 var friends = ["Mehedy", "Hassan", "Rohiz", "Eyasin", "Salauddin"];
 var mostLargeFriend = megaFriend(friends);
